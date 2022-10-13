@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+%:
+	dh $@
+
+override_dh_clean:
+	dh_clean
+	! [ -r libtool ] || rm libtool
+
+# We could run tests here, but they require OpenGL, and Mesa's software rendering
+# is frequently unstable or buggy (in particular with regard to accuracy) on
+# many platforms. In particular, mips* and s390x fail some tests that pass fine on
+# other platforms, and several platforms (ia64, riscv64, sparc64) don't even
+# manage to put up a working context. Even worse, xvfb-run does not
+# consistently manage to set up a valid device that SDL wants to use, so even amd64
+# cannot run these tests stable on the buildds.
+override_dh_auto_test:

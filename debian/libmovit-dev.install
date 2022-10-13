@@ -1,0 +1,4 @@
+usr/include/*
+usr/lib/*/libmovit.a
+usr/lib/*/libmovit.so
+usr/lib/*/pkgconfig/movit.pc

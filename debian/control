@@ -1,0 +1,32 @@
+Source: movit
+Priority: optional
+Maintainer: Steinar H. Gunderson <sesse@debian.org>
+Build-Depends: debhelper (>= 10.0.0), autotools-dev, libfftw3-dev, libepoxy-dev, libeigen3-dev, libgtest-dev, libsdl2-dev
+Standards-Version: 3.9.6
+Section: libs
+Homepage: http://movit.sesse.net/
+
+Package: libmovit-dev
+Section: libdevel
+Architecture: any
+Depends: libmovit8 (= ${binary:Version}), ${misc:Depends}, libfftw3-dev, libepoxy-dev, libeigen3-dev
+Description: GPU video filter library - development files
+ Movit is a high-quality, high performance, open-source library for video
+ filters. It uses the GPU present in almost any modern computer to
+ accelerate computation of common filters and transitions, facilitating
+ real-time HD video editing even on modest hardware.
+ .
+ This package contains the header files and static libraries.
+
+Package: libmovit8
+Section: libs
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libmovit1, libmovit2, libmovit2v5, libmovit3, libmovit4, libmovit5, libmovit6, libmovit7
+Multi-Arch: same
+Description: GPU video filter library
+ Movit is a high-quality, high performance, open-source library for video
+ filters. It uses the GPU present in almost any modern computer to
+ accelerate computation of common filters and transitions, facilitating
+ real-time HD video editing even on modest hardware.
